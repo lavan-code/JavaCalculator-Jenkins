@@ -13,7 +13,7 @@ pipeline {
 
   stage('Running on Node1') {
    agent {
-    label 'node1'
+    label 'master'
    }
    steps {
     //Use the script step and wrap arbitrary pipeline script inside of it
@@ -69,7 +69,7 @@ pipeline {
   stage('Publish Nexus') {
 
    agent {
-    label 'node1'
+    label 'master'
    }
 
    steps {
@@ -89,7 +89,7 @@ pipeline {
     // opjdk:version
     docker {
      image 'openjdk:latest'
-     label 'node1'
+     label 'master'
     }
    }
 
@@ -103,7 +103,7 @@ pipeline {
 
   stage('Promote Dev Branch To Master') {
    agent {
-    label 'node1'
+    label 'master'
    }
 
    when {
