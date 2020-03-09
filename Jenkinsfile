@@ -13,7 +13,7 @@ pipeline {
 
   stage('Running on Node1') {
    agent {
-    label 'master'
+    label 'Node1'
    }
    steps {
     //Use the script step and wrap arbitrary pipeline script inside of it
@@ -103,7 +103,7 @@ pipeline {
 
   stage('Promote Dev Branch To Master') {
    agent {
-    label 'master'
+    label 'Node1'
    }
 
    when {
